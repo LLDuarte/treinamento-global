@@ -1,0 +1,132 @@
+[
+	{
+		"name":"id",			
+		"dbType":"increments",	
+		"htmlType":"",			
+		"validations":"",		
+		"primary":true,			
+		"searchable":false,		
+		"fillable":false,		
+		"inForm":false,			
+		"inIndex":false			
+	},
+
+	{
+		"type":"relation",
+		"relation":"1tm,Fisica,endereco_id"
+	},
+    
+	{
+		"type":"relation",
+		"relation":"1tm,Juridica,endereco_id"
+	},
+
+	{
+		"name":"logradouro",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"numero",
+		"dbType":"integer:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"complemento",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"cep",
+		"dbType":"integer:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"bairro",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"municipio",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+    
+	{
+		"name":"uf",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+
+	{
+		"name":"created_at",
+		"dbType":"timestamp",
+		"htmlType":"",
+		"validations":"",
+		"primary":false,
+		"searchable":false,
+		"fillable":false,
+		"inForm":false,
+		"inIndex":false
+	},
+
+	{
+		"name":"updated_at",
+		"dbType":"timestamp",
+		"htmlType":"",
+		"validations":"",
+		"primary":false,
+		"searchable":false,
+		"fillable":false,
+		"inForm":false,
+		"inIndex":false
+	}
+
+]

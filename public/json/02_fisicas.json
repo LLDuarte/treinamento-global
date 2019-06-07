@@ -1,0 +1,111 @@
+[
+	{
+		"name":"id",			
+		"dbType":"increments",	
+		"htmlType":"",			
+		"validations":"",		
+		"primary":true,			
+		"searchable":false,		
+		"fillable":false,		
+		"inForm":false,			
+		"inIndex":false			
+	},
+
+	{
+		"name":"endereco_id",
+		"dbType":"integer:unsigned:foreign,enderecos,id",
+		"htmlType":"select,Endereco:id",
+		"relation":"mt1,Endereco,endereco_id,id",
+		"validations":"required",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+	},
+
+	{
+		"name":"nome",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+    },
+    
+    {
+		"name":"data_nascimento",
+		"dbType":"date",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+    },
+    
+    {
+		"name":"cpf",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+    },
+
+    {
+		"name":"email",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+    },
+
+    {
+		"name":"telefone",
+		"dbType":"string:nullable",
+		"htmlType":"text",
+		"validations":"",
+		"primary":false,
+		"searchable":true,
+		"fillable":true,
+		"inForm":true,
+		"inIndex":true
+    },
+
+	{
+		"name":"created_at",
+		"dbType":"timestamp",
+		"htmlType":"",
+		"validations":"",
+		"primary":false,
+		"searchable":false,
+		"fillable":false,
+		"inForm":false,
+		"inIndex":false
+	},
+
+	{
+		"name":"updated_at",
+		"dbType":"timestamp",
+		"htmlType":"",
+		"validations":"",
+		"primary":false,
+		"searchable":false,
+		"fillable":false,
+		"inForm":false,
+		"inIndex":false
+	}
+
+]
