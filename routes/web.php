@@ -19,3 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('enderecos', 'EnderecoController');
+
+Route::resource('fisicas', 'FisicaController');
+
+Route::resource('juridicas', 'JuridicaController');
