@@ -1,7 +1,7 @@
 <!-- Endereco Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('endereco_id', 'Endereco Id:') !!}
-    {!! Form::select('endereco_id', ['id' => 'Endereco'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('endereco_id', 'Endereço:') !!}
+    {!! Form::select('endereco_id', ['' => 'Selecione o endereço...'] + $enderecos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nome Field -->
@@ -12,20 +12,20 @@
 
 <!-- Data Nascimento Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('data_nascimento', 'Data Nascimento:') !!}
+    {!! Form::label('data_nascimento', 'Data de Nascimento:') !!}
     {!! Form::text('data_nascimento', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Cpf Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cpf', 'Cpf:') !!}
+    {!! Form::label('cpf', 'CEP:') !!}
     {!! Form::text('cpf', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Email Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+    {!! Form::label('email', 'E-mail:') !!}
+    {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Telefone Field -->
@@ -36,6 +36,6 @@
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('fisicas.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit('Salvar', ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('fisicas.index') !!}" class="btn btn-default">Cancelar</a>
 </div>

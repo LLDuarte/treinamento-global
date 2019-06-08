@@ -1,7 +1,7 @@
 <!-- Endereco Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('endereco_id', 'Endereco Id:') !!}
-    {!! Form::select('endereco_id', ['id' => 'Endereco'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('endereco_id', ['' => 'Selecione o endereço...'] + $enderecos, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Nome Fantasia Field -->

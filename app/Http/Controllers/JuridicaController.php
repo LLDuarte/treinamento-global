@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateJuridicaRequest;
 use App\Http\Requests\UpdateJuridicaRequest;
 use App\Repositories\JuridicaRepository;
+use App\Models\Endereco;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -39,7 +40,9 @@ class JuridicaController extends AppBaseController
      */
     public function create()
     {
-        return view('juridicas.create');
+        $enderecos = Endereco::orderBy('logradouro','asc')->pluck('logradouro','id')->all();
+
+        return view('juridicas.create', compact('enderecos'));
     }
 
     /**

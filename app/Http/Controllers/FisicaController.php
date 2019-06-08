@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateFisicaRequest;
 use App\Http\Requests\UpdateFisicaRequest;
 use App\Repositories\FisicaRepository;
+use App\Models\Endereco;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -39,7 +40,9 @@ class FisicaController extends AppBaseController
      */
     public function create()
     {
-        return view('fisicas.create');
+        $enderecos = Endereco::orderBy('logradouro','asc')->pluck('logradouro','id')->all();
+
+        return view('fisicas.create', compact('enderecos'));
     }
 
     /**

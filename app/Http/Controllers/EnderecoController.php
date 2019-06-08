@@ -55,7 +55,7 @@ class EnderecoController extends AppBaseController
 
         $endereco = $this->enderecoRepository->create($input);
 
-        Flash::success('Endereco saved successfully.');
+        Flash::success('Endereço criado com sucesso');
 
         return redirect(route('enderecos.index'));
     }
@@ -72,7 +72,7 @@ class EnderecoController extends AppBaseController
         $endereco = $this->enderecoRepository->find($id);
 
         if (empty($endereco)) {
-            Flash::error('Endereco not found');
+            Flash::error('Endereço não encontrado');
 
             return redirect(route('enderecos.index'));
         }
@@ -92,7 +92,7 @@ class EnderecoController extends AppBaseController
         $endereco = $this->enderecoRepository->find($id);
 
         if (empty($endereco)) {
-            Flash::error('Endereco not found');
+            Flash::error('Endereço não encontrado');
 
             return redirect(route('enderecos.index'));
         }
@@ -113,14 +113,14 @@ class EnderecoController extends AppBaseController
         $endereco = $this->enderecoRepository->find($id);
 
         if (empty($endereco)) {
-            Flash::error('Endereco not found');
+            Flash::error('Endereço não encontrado');
 
             return redirect(route('enderecos.index'));
         }
 
         $endereco = $this->enderecoRepository->update($request->all(), $id);
 
-        Flash::success('Endereco updated successfully.');
+        Flash::success('Endereço atualizado com sucesso.');
 
         return redirect(route('enderecos.index'));
     }
@@ -137,14 +137,14 @@ class EnderecoController extends AppBaseController
         $endereco = $this->enderecoRepository->find($id);
 
         if (empty($endereco)) {
-            Flash::error('Endereco not found');
+            Flash::error('Endereço não encontrado');
 
             return redirect(route('enderecos.index'));
         }
 
         $this->enderecoRepository->delete($id);
 
-        Flash::success('Endereco deleted successfully.');
+        Flash::success('Endereço excluído com sucesso');
 
         return redirect(route('enderecos.index'));
     }

@@ -42,17 +42,46 @@ class FisicaDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '120px', 'printable' => false])
+            ->addAction(['width' => '120px'])
             ->parameters([
-                'dom'       => 'Bfrtip',
-                'stateSave' => true,
-                'order'     => [[0, 'desc']],
-                'buttons'   => [
-                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
+                'language' => [ 'paginate' => ['next' => 'Próxima &raquo;', 'previous' => '&laquo; Anterior'],
+                                'buttons' => ['pageLength' => ['_' => '<i class="fa fa-sort datatable-icons"></i> %d registros por página']],
+                                'search' => 'Pesquisar: ',
+                                'emptyTable' => 'Não há registros nessa tabela',
+                                'info' => 'Mostrando de _START_ até _END_ de _TOTAL_ registros',
+                                'infoEmpty' => 'Mostrando 0 até 0 de 0 registros',
+                                'infoFiltered' => '(filtrados de _MAX_ registros)',
+                                'loadingRecords' => 'Carregando...',
+                                'processing' => 'Processando...',
+                                'zeroRecords' => 'Nenhum registro encontrado'],
+                'dom'     => 'Bfrtip',
+                'order'   => [[0, 'desc']],
+                'pageLength' => 50,
+                'scrollX' => true,
+                'buttons' => [
+                    [
+                        'extend'  => 'print',
+                        'text'    => '<i class="fa fa-print datatable-icons"></i> ' . 'Imprimir'
+                        
+                    ],
+                    [
+                        'extend'  => 'reload',
+                        'text'    => '<i class="fa fa-refresh datatable-icons"></i> ' . 'Recarregar'
+                    ],
+                    [
+                         'extend'  => 'collection',
+                         'text'    => '<i class="fa fa-download datatable-icons"></i> ' . 'Exportar',
+                         'buttons' => [
+                             'csv',
+                             'excel',
+                             'pdf',
+                         ],
+                    ],
+                    [   
+                        'extend'  => 'colvis',
+                        'text'    => '<i class="fa fa-columns datatable-icons"></i> ' . 'Colunas visíveis'
+                    ],
+                    'pageLength'
                 ],
             ]);
     }
@@ -65,12 +94,11 @@ class FisicaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'endereco_id',
-            'nome',
-            'data_nascimento',
-            'cpf',
-            'email',
-            'telefone'
+            'nome'              =>  ['title' => 'Nome'],
+            'data_nascimento'   =>  ['title' => 'Data de Nascimento'],
+            'cpf'               =>  ['title' => 'CPF'],
+            'email'             =>  ['title' => 'E-mail'],
+            'telefone'          =>  ['title' => 'Telefone']
         ];
     }
 

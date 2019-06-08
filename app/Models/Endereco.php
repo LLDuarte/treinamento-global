@@ -62,7 +62,8 @@ class Endereco extends Model
      * @var array
      */
     public static $rules = [
-        
+        'cep'   =>  'numeric',
+        'number'   =>  'numeric'
     ];
 
     /**
