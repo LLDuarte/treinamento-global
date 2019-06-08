@@ -1,9 +1,3 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $endereco->id !!}</p>
-</div>
-
 <!-- Logradouro Field -->
 <div class="form-group">
     {!! Form::label('logradouro', 'Logradouro:') !!}
@@ -42,19 +36,13 @@
 
 <!-- Uf Field -->
 <div class="form-group">
-    {!! Form::label('uf', 'Uf:') !!}
+    {!! Form::label('uf', 'UF:') !!}
     <p>{!! $endereco->uf !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $endereco->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $endereco->updated_at !!}</p>
+    {!! Form::label('created_at', 'Data de criação:') !!}
+    <p>{!! date_format($endereco->created_at, 'd/m/Y à\s H\hs') !!}</p>
 </div>
 

@@ -56,9 +56,13 @@ class JuridicaController extends AppBaseController
     {
         $input = $request->all();
 
+        $data_abertura = $input['data_abertura'];
+        $date = str_replace('/', '-', $data_abertura);
+        $input['data_abertura'] = date('Y-m-d', strtotime($date));
+
         $juridica = $this->juridicaRepository->create($input);
 
-        Flash::success('Juridica saved successfully.');
+        Flash::success('Pessoa jurídica cadastrada com sucesso.');
 
         return redirect(route('juridicas.index'));
     }
@@ -75,7 +79,7 @@ class JuridicaController extends AppBaseController
         $juridica = $this->juridicaRepository->find($id);
 
         if (empty($juridica)) {
-            Flash::error('Juridica not found');
+            Flash::error('Pessoa jurídica não encontrada');
 
             return redirect(route('juridicas.index'));
         }
@@ -95,12 +99,14 @@ class JuridicaController extends AppBaseController
         $juridica = $this->juridicaRepository->find($id);
 
         if (empty($juridica)) {
-            Flash::error('Juridica not found');
+            Flash::error('Pessoa jurídica não encontrada');
 
             return redirect(route('juridicas.index'));
         }
 
-        return view('juridicas.edit')->with('juridica', $juridica);
+        $enderecos = Endereco::orderBy('logradouro','asc')->pluck('logradouro','id')->all();
+
+        return view('juridicas.edit', compact('juridica', 'enderecos'));
     }
 
     /**
@@ -116,14 +122,14 @@ class JuridicaController extends AppBaseController
         $juridica = $this->juridicaRepository->find($id);
 
         if (empty($juridica)) {
-            Flash::error('Juridica not found');
+            Flash::error('Pessoa jurídica não encontrada');
 
             return redirect(route('juridicas.index'));
         }
 
         $juridica = $this->juridicaRepository->update($request->all(), $id);
 
-        Flash::success('Juridica updated successfully.');
+        Flash::success('Pessoa jurídica atualizada com sucesso.');
 
         return redirect(route('juridicas.index'));
     }
@@ -140,14 +146,14 @@ class JuridicaController extends AppBaseController
         $juridica = $this->juridicaRepository->find($id);
 
         if (empty($juridica)) {
-            Flash::error('Juridica not found');
+            Flash::error('Pessoa jurídica não encontrada');
 
             return redirect(route('juridicas.index'));
         }
 
         $this->juridicaRepository->delete($id);
 
-        Flash::success('Juridica deleted successfully.');
+        Flash::success('Pessoa jurídica excluída com sucesso.');
 
         return redirect(route('juridicas.index'));
     }

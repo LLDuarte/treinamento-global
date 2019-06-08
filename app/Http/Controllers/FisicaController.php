@@ -56,9 +56,13 @@ class FisicaController extends AppBaseController
     {
         $input = $request->all();
 
+        $data_nascimento = $input['data_nascimento'];
+        $date = str_replace('/', '-', $data_nascimento);
+        $input['data_nascimento'] = date('Y-m-d', strtotime($date));
+
         $fisica = $this->fisicaRepository->create($input);
 
-        Flash::success('Fisica saved successfully.');
+        Flash::success('Pessoa Física salva com sucesso.');
 
         return redirect(route('fisicas.index'));
     }
@@ -75,7 +79,7 @@ class FisicaController extends AppBaseController
         $fisica = $this->fisicaRepository->find($id);
 
         if (empty($fisica)) {
-            Flash::error('Fisica not found');
+            Flash::error('Pessoa física não encontrada.');
 
             return redirect(route('fisicas.index'));
         }
@@ -95,12 +99,14 @@ class FisicaController extends AppBaseController
         $fisica = $this->fisicaRepository->find($id);
 
         if (empty($fisica)) {
-            Flash::error('Fisica not found');
+            Flash::error('Pessoa física não encontrada.');
 
             return redirect(route('fisicas.index'));
         }
 
-        return view('fisicas.edit')->with('fisica', $fisica);
+        $enderecos = Endereco::orderBy('logradouro','asc')->pluck('logradouro','id')->all();
+
+        return view('fisicas.edit', compact('fisica', 'enderecos'));
     }
 
     /**
@@ -116,14 +122,20 @@ class FisicaController extends AppBaseController
         $fisica = $this->fisicaRepository->find($id);
 
         if (empty($fisica)) {
-            Flash::error('Fisica not found');
+            Flash::error('Pessoa física não encontrada.');
 
             return redirect(route('fisicas.index'));
         }
 
-        $fisica = $this->fisicaRepository->update($request->all(), $id);
+        $input = $request->all();
 
-        Flash::success('Fisica updated successfully.');
+        $data_nascimento = $input['data_nascimento'];
+        $date = str_replace('/', '-', $data_nascimento);
+        $input['data_nascimento'] = date('Y-m-d', strtotime($date));
+
+        $fisica = $this->fisicaRepository->update($input, $id);
+
+        Flash::success('Pessoa física atualizada com sucesso.');
 
         return redirect(route('fisicas.index'));
     }
@@ -140,14 +152,14 @@ class FisicaController extends AppBaseController
         $fisica = $this->fisicaRepository->find($id);
 
         if (empty($fisica)) {
-            Flash::error('Fisica not found');
+            Flash::error('Pessoa física não encontrada.');
 
             return redirect(route('fisicas.index'));
         }
 
         $this->fisicaRepository->delete($id);
 
-        Flash::success('Fisica deleted successfully.');
+        Flash::success('Pessoa física excluída com sucesso.');
 
         return redirect(route('fisicas.index'));
     }

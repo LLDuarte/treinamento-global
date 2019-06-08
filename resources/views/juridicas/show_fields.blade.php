@@ -1,19 +1,7 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $juridica->id !!}</p>
-</div>
-
 <!-- Endereco Id Field -->
 <div class="form-group">
-    {!! Form::label('endereco_id', 'Endereco Id:') !!}
-    <p>{!! $juridica->endereco_id !!}</p>
-</div>
-
-<!-- Nome Fantasia Field -->
-<div class="form-group">
-    {!! Form::label('nome_fantasia', 'Nome Fantasia:') !!}
-    <p>{!! $juridica->nome_fantasia !!}</p>
+    {!! Form::label('endereco_id', 'Endereço:') !!}
+    <a href="{{ route('enderecos.show', $juridica->endereco->id) }}"><p>{!! $juridica->endereco->logradouro !!} - {!! $juridica->endereco->numero !!} <br> {!! $juridica->endereco->bairro !!}</p></a>
 </div>
 
 <!-- Razao Social Field -->
@@ -25,7 +13,7 @@
 <!-- Data Abertura Field -->
 <div class="form-group">
     {!! Form::label('data_abertura', 'Data Abertura:') !!}
-    <p>{!! $juridica->data_abertura !!}</p>
+    <p>{!! date_format($juridica->data_abertura, 'd/m/Y') !!}</p>
 </div>
 
 <!-- Cnpj Field -->
@@ -48,13 +36,7 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $juridica->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $juridica->updated_at !!}</p>
+    {!! Form::label('created_at', 'Data de cadastro:') !!}
+    <p>{!! date_format($juridica->created_at, 'd/m/Y à\s H\hs') !!}</p>
 </div>
 

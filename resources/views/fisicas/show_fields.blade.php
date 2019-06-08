@@ -1,30 +1,18 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $fisica->id !!}</p>
-</div>
-
 <!-- Endereco Id Field -->
 <div class="form-group">
-    {!! Form::label('endereco_id', 'Endereco Id:') !!}
-    <p>{!! $fisica->endereco_id !!}</p>
-</div>
-
-<!-- Nome Field -->
-<div class="form-group">
-    {!! Form::label('nome', 'Nome:') !!}
-    <p>{!! $fisica->nome !!}</p>
+    {!! Form::label('endereco_id', 'Endereço:') !!}
+    <a href="{{ route('enderecos.show', $fisica->endereco->id) }}"><p>{!! $fisica->endereco->logradouro !!} - {!! $fisica->endereco->numero !!} <br> {!! $fisica->endereco->bairro !!}</p></a>
 </div>
 
 <!-- Data Nascimento Field -->
 <div class="form-group">
     {!! Form::label('data_nascimento', 'Data Nascimento:') !!}
-    <p>{!! $fisica->data_nascimento !!}</p>
+    <p>{!! date_format($fisica->data_nascimento, 'd/m/Y') !!}</p>
 </div>
 
 <!-- Cpf Field -->
 <div class="form-group">
-    {!! Form::label('cpf', 'Cpf:') !!}
+    {!! Form::label('cpf', 'CPF:') !!}
     <p>{!! $fisica->cpf !!}</p>
 </div>
 
@@ -42,13 +30,7 @@
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $fisica->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $fisica->updated_at !!}</p>
+    {!! Form::label('created_at', 'Data de criação:') !!}
+    <p>{!! date_format($fisica->created_at, 'd/m/Y à\s H\hs') !!}</p>
 </div>
 
