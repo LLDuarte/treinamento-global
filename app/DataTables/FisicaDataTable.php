@@ -95,7 +95,7 @@ class FisicaDataTable extends DataTable
     {
         return [
             'nome'              =>  ['title' => 'Nome'],
-            'data_nascimento'   =>  ['title' => 'Data de Nascimento'],
+            'data_nascimento'   =>  ['title' => 'Data de Nascimento', 'visible' => false],
             'cpf'               =>  ['title' => 'CPF'],
             'email'             =>  ['title' => 'E-mail'],
             'telefone'          =>  ['title' => 'Telefone']

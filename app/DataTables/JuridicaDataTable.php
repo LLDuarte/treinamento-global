@@ -96,7 +96,7 @@ class JuridicaDataTable extends DataTable
         return [
             'nome_fantasia'              =>  ['title' => 'Nome Fantasia'],
             'razao_social'               =>  ['title' => 'Razão Social'],
-            'data_abertura'              =>  ['title' => 'Data de Abertura'],
+            'data_abertura'              =>  ['title' => 'Data de Abertura', 'visible' => false],
             'cnpj'                       =>  ['title' => 'CNPJ'],
             'email'                      =>  ['title' => 'E-mail'],
             'telefone'                   =>  ['title' => 'Telefone']

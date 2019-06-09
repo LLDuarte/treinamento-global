@@ -18,7 +18,7 @@
         <div class="input-group-addon">
         <i class="fa fa-calendar"></i>
         </div>
-        <input type="text" name="data_nascimento" class="form-control pull-right" id="datepicker" autocomplete="off" required>
+        {!! Form::text('data_nascimento', null, ['class' => 'form-control pull-right', 'id' => 'datepicker', 'autocomplete' => 'off']) !!}
     </div>
 </div>
 
