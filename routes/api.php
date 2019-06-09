@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function ($api) {
+
+    // * Juridica
+    $api->group(['prefix' => 'juridicas'], function ($api) {
+        $api->post('/get-cnpj',        'App\Api\V1\Controllers\JuridicaController@get_cnpj');
+    });
+
 });

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>InfyOm Generator</title>
+    <title>Global Financeiro</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Bootstrap 3.3.7 -->
@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
+
     @yield('css')
 </head>
 
@@ -34,8 +37,8 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="#" class="logo">
-                <b>InfyOm</b>
+            <a href="#" class="logo" style="margin:auto;">
+                <img src="{{ asset('images/logo.png') }}" style="width: 80%; margin-top: 10px;">
             </a>
 
             <!-- Header Navbar -->
@@ -69,18 +72,15 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
+                                    <center><div class="pull-center">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            Sign out
+                                            Sair
                                         </a>
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </div>
+                                    </div><center>
                                 </li>
                             </ul>
                         </li>
@@ -88,6 +88,8 @@
                 </div>
             </nav>
         </header>
+
+
 
         <!-- Left side column. contains the logo and sidebar -->
         @include('layouts.sidebar')
@@ -98,7 +100,7 @@
 
         <!-- Main Footer -->
         <footer class="main-footer" style="max-height: 100px;text-align: center">
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
+            <strong>Copyright © 2019 <a href="https://github.com/LLDuarte">Leandro Duarte</a>.</strong> Todos os direitos reservados.
         </footer>
 
     </div>
@@ -161,6 +163,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
 
+    <!-- bootstrap datepicker -->
+    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
     @yield('scripts')
 </body>
 </html>

@@ -181,6 +181,7 @@ return [
         \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\ButtonsServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class,
 
     ],
 
